@@ -2,7 +2,6 @@ function solution(num) {
   let count = 0;
 
   while (num > 1) {
-    console.log(num);
     if (count > 500) {
       break;
     }
@@ -10,6 +9,7 @@ function solution(num) {
     if (num % 2 === 0) {
       num /= 2;
       count++;
+      continue;
     }
 
     if (num % 2 === 1) {
