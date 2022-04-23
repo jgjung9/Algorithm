@@ -14,7 +14,7 @@ function solution(x) {
   return false;
 }
 
-function solution2(x) {
+function solution(x) {
   let sum = x
     .toString()
     .split("")
