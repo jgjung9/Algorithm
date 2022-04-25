@@ -1,4 +1,4 @@
-// 행렬 곲 a x b = c ( m x n matrix n x m matrix 곱)
+// 행렬 곱 a x b = c ( m x n matrix n x m matrix 곱)
 // cij = ai1 * b1j + ai2 * b2j + ... ;
 // cij = sigma k= 1 k->n  (aik + bkj) ;
 
