@@ -1,3 +1,10 @@
+function move(matrix, x, y, pre) {
+    let temp = matrix[x][y];
+    matrix[x][y] = pre;
+    pre = temp;
+    return pre;
+}
+
 function solution(rows, columns, queries) {
     const answer = [];
     const matrix = [];
@@ -19,59 +26,50 @@ function solution(rows, columns, queries) {
         let min = pre;
         // 우
         while (posY < y2) {
-            let temp = matrix[posX][posY];
-            matrix[posX][posY++] = pre;
-            pre = temp;
-            if (min > pre) {
-                min = pre;
-            }
+            pre = move(matrix, posX, posY, pre);
+            min = Math.min(min, pre);
+            posY++;
         }
         posY--;
         posX++;
 
         // 하
         while (posX < x2) {
-            let temp = matrix[posX][posY];
-            matrix[posX++][posY] = pre;
-            pre = temp;
-            if (min > pre) {
-                min = pre;
-            }
+            pre = move(matrix, posX, posY, pre);
+            min = Math.min(min, pre);
+            posX++;
         }
         posX--;
         posY--;
 
         // 좌
         while (posY >= y1 - 1) {
-            let temp = matrix[posX][posY];
-            matrix[posX][posY--] = pre;
-            pre = temp;
-            if (min > pre) {
-                min = pre;
-            }
+            pre = move(matrix, posX, posY, pre);
+            min = Math.min(min, pre);
+            posY--;
         }
         posY++;
         posX--;
 
         // 상
         while (posX >= x1 - 1) {
-            let temp = matrix[posX][posY];
-            matrix[posX--][posY] = pre;
-            pre = temp;
-            if (min > pre) {
-                min = pre;
-            }
+            pre = move(matrix, posX, posY, pre);
+            min = Math.min(min, pre);
+            posX--;
         }
         answer.push(min);
     }
     return answer;
 }
 
-solution(6, 6, [
-    [2, 2, 5, 4],
-    [3, 3, 6, 6],
-    [5, 1, 6, 3],
-]);
+console.log(
+    solution(3, 3, [
+        [1, 1, 2, 2],
+        [1, 2, 2, 3],
+        [2, 1, 3, 2],
+        [2, 2, 3, 3],
+    ])
+);
 
 // 6	6	[[2,2,5,4],[3,3,6,6],[5,1,6,3]]	[8, 10, 25]
 // 3	3	[[1,1,2,2],[1,2,2,3],[2,1,3,2],[2,2,3,3]]	[1, 1, 5, 3]
