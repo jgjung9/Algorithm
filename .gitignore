@@ -1,0 +1,10 @@
+*.txt
+
+*.pdf
+
+.vscode
+
+*.sln
+*.vcxproj.*
+*.vcxproj
+*.vs
