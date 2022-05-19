@@ -3,8 +3,8 @@
 *.pdf
 
 .vscode
-*/yet
+yet/
 *.sln
 *.vcxproj.*
-*.vcxproj
+*.vcxprojaddition
 *.vs
