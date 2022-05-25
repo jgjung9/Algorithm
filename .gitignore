@@ -2,6 +2,8 @@
 
 *.pdf
 
+*.exe
+
 .vscode
 yet/*
 *.sln
