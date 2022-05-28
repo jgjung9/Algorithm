@@ -8,11 +8,11 @@ function solution(numbers, target) {
     const d = [1, -1];
     function BFS(vertex, value) {
         for (let dir = 0; dir < 2; dir++) {
-            const nextValue = value + d[dir] * numbers[vertex];
+            const result = value + d[dir] * numbers[vertex];
             if (vertex + 1 < numbers.length) {
-                queue.push([vertex + 1, nextValue]);
+                queue.push([vertex + 1, result]);
                 rear++;
-            } else if (target === nextValue) count++;
+            } else if (target === result) count++;
         }
     }
 
