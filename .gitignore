@@ -3,6 +3,7 @@
 *.pdf
 
 *.exe
+*.out
 
 .vscode
 yet/*
