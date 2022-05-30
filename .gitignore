@@ -6,7 +6,6 @@
 *.out
 
 .vscode
-yet/*
 *.sln
 *.vcxproj.*
 *.vcxprojaddition
