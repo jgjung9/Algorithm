@@ -1,13 +1,12 @@
 /**
- * https://www.acmicpc.net/problem/10972
+ * https://www.acmicpc.net/problem/10974
  *
- * solution: C++ STL에 있는 next_permutation함수를 이용한 간단한 풀이
+ * solution: C++ STL next_permutation 함수를 이용한 간단한 풀이
  */
-
 #include <iostream>
 #include <algorithm>
 using namespace std;
-int permutation[10000];
+int permutation[8];
 
 int main()
 {
@@ -16,13 +15,13 @@ int main()
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
-        cin >> permutation[i];
-    if (next_permutation(permutation, permutation + n))
+        permutation[i] = i + 1;
+    do
     {
         for (int i = 0; i < n; i++)
             cout << permutation[i] << ' ';
-    }
-    else
-        cout << -1;
+        cout << '\n';
+    } while (next_permutation(permutation, permutation + n));
+
     return 0;
 }
