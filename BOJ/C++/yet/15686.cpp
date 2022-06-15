@@ -1,3 +1,7 @@
+/**
+ * check =>O(nxm) => 50 * 13 = 약 1000 정도로 생각하면,
+ *
+ */
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -7,20 +11,42 @@ struct Position
     int x;
     int y;
 };
-int n, m, temp, cnt = 0;
+int n, m, temp, cnt = 0, ans = 1e9;
 vector<Position> houses;
 vector<Position> chickens;
+vector<Position> selected;
 
 int check()
 {
+    int minDis, ans = 0;
+    int diffX, diffY;
+    for (int i = 0; i < houses.size(); i++)
+    {
+        minDis = 100;
+        for (int j = 0; j < selected.size(); j++)
+        {
+            diffX = abs(houses[i].x - selected[j].x);
+            diffY = abs(houses[i].y - selected[j].y);
+            minDis = min(minDis, diffX + diffY);
+        }
+    }
+    return ans;
 }
 
-void Select(int m, int idx)
+void Select(int m, int idx, int cnt)
 {
     if (m == cnt)
     {
-        check();
+        ans = min(check(), ans);
+        return;
     }
+    if (idx == chickens.size())
+        return;
+
+    selected.push_back(chickens[idx]);
+    Select(m, idx + 1, cnt + 1);
+    selected.pop_back();
+    Select(m, idx + 1, cnt);
 }
 
 int main()
@@ -39,4 +65,7 @@ int main()
                 chickens.push_back({i, j});
         }
     }
+    Select(m, 0, 0);
+    cout << ans;
+    return 0;
 }
