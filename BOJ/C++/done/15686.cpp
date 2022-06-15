@@ -5,13 +5,12 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
 struct Position
 {
     int x;
     int y;
 };
-int n, m, temp, cnt = 0, ans = 1e9;
+int n, m, ans = 1e9;
 vector<Position> houses;
 vector<Position> chickens;
 vector<Position> selected;
@@ -29,11 +28,12 @@ int check()
             diffY = abs(houses[i].y - selected[j].y);
             minDis = min(minDis, diffX + diffY);
         }
+        ans += minDis;
     }
     return ans;
 }
 
-void Select(int m, int idx, int cnt)
+void select(int m, int idx, int cnt)
 {
     if (m == cnt)
     {
@@ -44,15 +44,17 @@ void Select(int m, int idx, int cnt)
         return;
 
     selected.push_back(chickens[idx]);
-    Select(m, idx + 1, cnt + 1);
+    select(m, idx + 1, cnt + 1);
     selected.pop_back();
-    Select(m, idx + 1, cnt);
+    select(m, idx + 1, cnt);
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+
+    int temp;
     cin >> n >> m;
     for (int i = 0; i < n; i++)
     {
@@ -65,7 +67,7 @@ int main()
                 chickens.push_back({i, j});
         }
     }
-    Select(m, 0, 0);
+    select(m, 0, 0);
     cout << ans;
     return 0;
 }
