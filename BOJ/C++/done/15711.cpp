@@ -6,7 +6,7 @@ using ll = long long;
 int t;
 ll a, b;
 vector<int> prime;
-vector<bool> isPrime(2e6, true);
+vector<bool> isPrime(1.5e6, true);
 
 bool check(ll a, ll b)
 {
@@ -15,17 +15,14 @@ bool check(ll a, ll b)
         return false;
     if (sum % 2 == 0)
         return true;
-    else if ((sum - 2) < 2e6)
+    if ((sum - 2) < 1.5e6)
         return isPrime[sum - 2];
-    else
+    for (int i = 0; i < prime.size(); i++)
     {
-        for (int i = 0; i < prime.size(); i++)
-        {
-            if ((sum - 2) % prime[i] == 0)
-                return false;
-        }
-        return true;
+        if ((sum - 2) % prime[i] == 0)
+            return false;
     }
+    return true;
 }
 
 int main()
