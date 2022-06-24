@@ -12,7 +12,6 @@ function solution(record) {
     else if (command === 'Leave') answer.push(`${ids.get(id)}님이 나갔습니다.`);
   });
 
-  console.log(answer);
   return answer;
 }
 
