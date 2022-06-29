@@ -1,6 +1,7 @@
 /**
  * https://www.acmicpc.net/problem/11403
  *
+ * solution: 플로이드 워셜 알고리즘을 활용한 해결
  */
 #include <iostream>
 #include <vector>
