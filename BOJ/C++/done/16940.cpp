@@ -26,7 +26,7 @@ void BFS(int node)
     q.push(node);
     if (orderList[node] != order++)
     {
-        cout << -1;
+        cout << 0;
         return;
     }
 
