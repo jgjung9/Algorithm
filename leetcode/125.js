@@ -1,5 +1,5 @@
 /**
- * two pointer를 이용한 펠린드롬 판별
+ * two pointer를 이용한 펠린드롬 판별 방식
  * O(n)의 시간 복잡도를 가진다.
  * @param {string} s
  * @return {boolean}
